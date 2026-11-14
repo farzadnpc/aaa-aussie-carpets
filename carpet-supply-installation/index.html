@@ -284,8 +284,8 @@
       </ul>
     </div>
 
-    <!-- To receive form emails: create a free form at https://formspree.io and replace YOUR_FORM_ID below -->
-    <form class="quote-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <!-- This form is emailed to you by EmailJS. Your keys go at the top of the quote form section in assets/js/main.js -->
+    <form class="quote-form" method="POST">
       <div class="form-row">
         <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
@@ -306,7 +306,7 @@
         </select>
       </div>
       <div class="field"><label for="q-msg">Tell us about the job</label><textarea id="q-msg" name="message" placeholder="Rooms, stairs, rough size, when you'd like it done…"></textarea></div>
-      <div class="hp" aria-hidden="true"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website_url" tabindex="-1" autocomplete="off"></label></div>
       <button class="btn btn--gold" type="submit">Request my free quote</button>
       <p class="form-status" role="status" aria-live="polite"></p>
       <p class="form-note">We'll only use your details to reply to your enquiry.</p>

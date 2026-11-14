@@ -54,9 +54,9 @@ Then on GitHub: **Settings → Pages → Build and deployment → Deploy from a 
 
 ## Before you launch — checklist
 
-- [ ] **Quote form**: create a free form at https://formspree.io, copy the form ID, and replace
-      `YOUR_FORM_ID` in every HTML file (search the whole project in VS Code: Cmd+Shift+F).
-      Until then the form tells people to call.
+- [ ] **Quote form (EmailJS)**: paste your Public Key, Service ID and Template ID into the
+      `EMAILJS` settings near the bottom of `assets/js/main.js`. Until then the form tells people to call.
+      See "Quote form emails" below for the template to use.
 - [ ] **Reviews**: replace the `[Paste a real customer review here.]` placeholders in `reviews/index.html`
       with real reviews from real customers.
 - [ ] **Address**: check `114 Dontons Ave, Melbourne VIC` is correct and add your suburb and postcode.
@@ -72,3 +72,40 @@ Then on GitHub: **Settings → Pages → Build and deployment → Deploy from a 
 - **Menu**: the header and footer are repeated at the top and bottom of each HTML file, so change
   each one (VS Code's search-and-replace across files makes this quick).
 - **Photos**: put new photos in `assets/images/` and keep them under ~300 KB each so the site stays fast.
+
+## Quote form emails (EmailJS)
+
+The quote form at the bottom of every page is sent to your inbox by EmailJS (free plan: 200 emails/month).
+
+1. **Email Services**: connect your email account (e.g. Gmail) and note the **Service ID**.
+2. **Email Templates → Create New Template**, then set:
+   - **Subject:** `New quote request from {{name}} ({{suburb}})`
+   - **Content:**
+     ```
+     Name: {{name}}
+     Phone: {{phone}}
+     Email: {{email}}
+     Suburb: {{suburb}}
+     Service: {{service}}
+
+     Message:
+     {{message}}
+
+     Sent from: {{page}}
+     ```
+   - **To Email:** your email address
+   - **Reply To:** `{{email}}` (so you can just hit Reply to answer the customer)
+   - Save, and note the **Template ID**.
+3. **Account → General**: copy your **Public Key**.
+4. Paste all three into `assets/js/main.js`:
+   ```js
+   var EMAILJS = {
+     publicKey: "your public key",
+     serviceId: "your service id",
+     templateId: "your template id"
+   };
+   ```
+5. **Account → Security**: add your website address (e.g. `https://www.aaaaussiecarpets.com`) to the
+   allowed domains so nobody else can send emails using your keys.
+
+The public key is meant to be visible in website code. Never paste your EmailJS **Private Key** into the site.

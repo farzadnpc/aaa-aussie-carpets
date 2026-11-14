@@ -85,26 +85,55 @@
     });
   }
 
-  /* ---------- Quote form ----------
-     The form posts to Formspree (free). Until you paste your own form ID
-     into the form's action attribute, it shows a "please call us" message. */
+  /* ---------- Quote form (sent to your email by EmailJS) ----------
+     Paste your three EmailJS values below (from emailjs.com):
+       publicKey  -> Account > General > Public Key
+       serviceId  -> Email Services > your service > Service ID
+       templateId -> Email Templates > your template > Template ID
+     Until they're filled in, the form asks people to call instead. */
+  var EMAILJS = {
+    publicKey: "7j1oLuM2A3mmmb_O6",
+    serviceId: "service_pv3newe",
+    templateId: "template_sh4ox3p"
+  };
+
   var form = document.querySelector(".quote-form");
   if (form) {
     var status = form.querySelector(".form-status");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (form.querySelector(".hp input").value) return; // spam bot
-      var action = form.getAttribute("action") || "";
-      if (action.indexOf("YOUR_FORM_ID") !== -1) {
+      var configured = [EMAILJS.publicKey, EMAILJS.serviceId, EMAILJS.templateId]
+        .every(function (v) { return v && v.indexOf("YOUR_") !== 0; });
+      if (!configured) {
         status.className = "form-status err";
         status.textContent = "Online quotes are coming soon — please call us on 0415 850 095 for a free quote.";
         return;
       }
+      var data = new FormData(form);
+      var params = {
+        name: data.get("name") || "",
+        phone: data.get("phone") || "",
+        email: data.get("email") || "",
+        suburb: data.get("suburb") || "",
+        service: data.get("service") || "",
+        message: data.get("message") || "",
+        page: document.title
+      };
       var btn = form.querySelector("button[type=submit]");
       btn.disabled = true;
       status.className = "form-status";
       status.textContent = "Sending…";
-      fetch(action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+      fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_id: EMAILJS.serviceId,
+          template_id: EMAILJS.templateId,
+          user_id: EMAILJS.publicKey,
+          template_params: params
+        })
+      })
         .then(function (res) {
           if (!res.ok) throw new Error("Request failed");
           form.reset();
