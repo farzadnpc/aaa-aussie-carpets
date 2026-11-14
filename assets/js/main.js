@@ -148,6 +148,27 @@
     });
   }
 
+  /* ---------- Areas page: suburb search ---------- */
+  var search = document.getElementById("suburb-search");
+  if (search) {
+    var items = document.querySelectorAll(".region-block li[data-name]");
+    var blocks = document.querySelectorAll(".region-block");
+    var empty = document.querySelector(".area-search-empty");
+    search.addEventListener("input", function () {
+      var q = search.value.trim().toLowerCase();
+      var shown = 0;
+      items.forEach(function (li) {
+        var match = !q || li.getAttribute("data-name").indexOf(q) !== -1;
+        li.hidden = !match;
+        if (match) shown++;
+      });
+      blocks.forEach(function (b) {
+        b.hidden = !b.querySelector("li[data-name]:not([hidden])");
+      });
+      empty.hidden = shown !== 0;
+    });
+  }
+
   /* ---------- Footer year ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

@@ -19,6 +19,9 @@ why-us/                         Why Us page                      -> /why-us/
 reviews/                        Reviews page                     -> /reviews/
 areas/                          Areas page                       -> /areas/
 questions/                      Questions (FAQ) page             -> /questions/
+<suburb>/                       One page per suburb (385 of them)  -> /werribee-south/ etc.
+data/suburbs.csv                Suburb data the suburb pages are built from
+tools/build.py                  Builds every page (run: python3 tools/build.py)
 404.html                        "Page not found" page
 assets/css/styles.css           All styling (brand colours are at the top in :root)
 assets/js/main.js               Menu, Services dropdown, gallery pop-up, quote form
@@ -69,8 +72,8 @@ Then on GitHub: **Settings → Pages → Build and deployment → Deploy from a 
 
 - **Colours**: edit the variables at the top of `assets/css/styles.css`.
 - **Phone number**: search and replace `0415 850 095` and `+61415850095` across the project.
-- **Menu**: the header and footer are repeated at the top and bottom of each HTML file, so change
-  each one (VS Code's search-and-replace across files makes this quick).
+- **Menu, text, services, FAQs**: these live in `tools/build.py`. Change them there, then run
+  `python3 tools/build.py` to rebuild every page (editing the HTML directly gets overwritten on the next rebuild).
 - **Photos**: put new photos in `assets/images/` and keep them under ~300 KB each so the site stays fast.
 
 ## Quote form emails (EmailJS)
@@ -109,3 +112,25 @@ The quote form at the bottom of every page is sent to your inbox by EmailJS (fre
    allowed domains so nobody else can send emails using your keys.
 
 The public key is meant to be visible in website code. Never paste your EmailJS **Private Key** into the site.
+
+## Suburb pages
+
+Every suburb in `data/suburbs.csv` gets its own page at `/<url_slug>/` (e.g. `/werribee-south/`), with:
+the suburb's intro text, all five services, distance from the CBD, a map, the 8 nearest suburbs
+(worked out from latitude/longitude), other suburbs in the same council, local FAQs and the quote form
+with the suburb already filled in. The Areas page lists every suburb by region with a search box.
+
+**To add or change suburbs:**
+
+1. Edit the Google Sheet.
+2. **File → Download → Comma-separated values (.csv)**.
+3. In the project folder, run (use the path of the file you downloaded):
+   ```bash
+   python3 tools/build.py ~/Downloads/suburbs.csv
+   ```
+4. Commit and push.
+
+Only these columns are used: `url_slug, suburb, postcode, council, region, latitude, longitude, unique_intro`.
+`url_slug` must be lowercase letters, numbers and hyphens, and must not clash with an existing page
+(like `gallery` or `areas`). The `testimonial_text` and `local_landmark` columns are deliberately ignored:
+the testimonials aren't from real customers, and the landmarks haven't been checked.
