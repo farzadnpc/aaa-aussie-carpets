@@ -48,11 +48,11 @@ git push -u origin main
 
 Then on GitHub: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / root → Save**.
 
-### Use your own domain (www.aaaaussiecarpets.com)
+### Use your own domain (www.aaaaussiecarpets.com.au)
 
-1. In **Settings → Pages → Custom domain**, enter `www.aaaaussiecarpets.com` and tick **Enforce HTTPS**.
+1. In **Settings → Pages → Custom domain**, enter `www.aaaaussiecarpets.com.au` and tick **Enforce HTTPS**.
 2. At your domain registrar, add a `CNAME` record: `www` → `<your-username>.github.io`.
-3. The site's SEO tags already point at `https://www.aaaaussiecarpets.com/`. If you use a different domain,
+3. The site's SEO tags already point at `https://www.aaaaussiecarpets.com.au/`. If you use a different domain,
    search-and-replace that address across all files.
 
 ## Before you launch — checklist
@@ -65,7 +65,7 @@ Then on GitHub: **Settings → Pages → Build and deployment → Deploy from a 
 - [ ] **Social links**: check the Instagram, Facebook and X links point to your real pages.
 - [ ] **Areas**: edit the suburb lists in the Areas section to the areas you actually cover.
 - [ ] **Google**: set up a free **Google Business Profile**, and add the site to **Google Search Console**
-      and submit `https://www.aaaaussiecarpets.com/sitemap.xml`.
+      and submit `https://www.aaaaussiecarpets.com.au/sitemap.xml`.
 
 ## Changing things
 
@@ -107,7 +107,7 @@ The quote form at the bottom of every page is sent to your inbox by EmailJS (fre
      templateId: "your template id"
    };
    ```
-5. **Account → Security**: add your website address (e.g. `https://www.aaaaussiecarpets.com`) to the
+5. **Account → Security**: add your website address (e.g. `https://www.aaaaussiecarpets.com.au`) to the
    allowed domains so nobody else can send emails using your keys.
 
 The public key is meant to be visible in website code. Never paste your EmailJS **Private Key** into the site.

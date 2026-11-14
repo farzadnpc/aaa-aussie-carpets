@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.aaaaussiecarpets.com/sitemap.xml
+Sitemap: https://www.aaaaussiecarpets.com.au/sitemap.xml

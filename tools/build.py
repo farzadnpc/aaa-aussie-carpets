@@ -11,7 +11,7 @@ because a rebuild overwrites them.
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = "https://www.aaaaussiecarpets.com"
+SITE = "https://www.aaaaussiecarpets.com.au"
 NAME = "AAA Aussie Carpets"
 PHONE = "0415 850 095"
 PHONE_TEL = "+61415850095"
