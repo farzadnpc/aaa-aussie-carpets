@@ -15,7 +15,7 @@ SITE = "https://www.aaaaussiecarpets.com"
 NAME = "AAA Aussie Carpets"
 PHONE = "0415 850 095"
 PHONE_TEL = "+61415850095"
-STREET = "114 Dontons Ave"
+SERVICE_AREA = "Greater Melbourne"
 CITY = "Melbourne"
 REGION = "VIC"
 SOCIAL = "aaaaussiecarpets"
@@ -239,8 +239,8 @@ BUSINESS = {
  "telephone": PHONE_TEL,
  "image": f"{SITE}/assets/images/og-image.jpg",
  "logo": f"{SITE}/assets/images/icon-192.png",
- "address": {"@type": "PostalAddress", "streetAddress": STREET, "addressLocality": CITY, "addressRegion": REGION, "addressCountry": "AU"},
- "areaServed": {"@type": "City", "name": "Melbourne"},
+ "address": {"@type": "PostalAddress", "addressLocality": CITY, "addressRegion": REGION, "addressCountry": "AU"},
+ "areaServed": {"@type": "AdministrativeArea", "name": "Greater Melbourne, Victoria"},
  "sameAs": [f"https://www.instagram.com/{SOCIAL}", f"https://www.facebook.com/{SOCIAL}", f"https://x.com/{SOCIAL}"],
 }
 
@@ -358,7 +358,7 @@ def quote_section(suburb=""):
       <p>Tell us a little about your job and we'll get back to you with a clear, upfront quote. Prefer to talk? Give us a call — we're happy to help.</p>
       <ul class="contact-list">
         <li><span class="ci">{I["phone"]}</span><div><strong>Call us</strong><a href="tel:{PHONE_TEL}">{PHONE}</a></div></li>
-        <li><span class="ci">{I["pin"]}</span><div><strong>Visit us</strong><span>{STREET}, {CITY} {REGION}</span></div></li>
+        <li><span class="ci">{I["pin"]}</span><div><strong>Service area</strong><span>{SERVICE_AREA}, {REGION}</span></div></li>
         <li><span class="ci">{I["insta"]}</span><div><strong>Follow us</strong><a href="https://www.instagram.com/{SOCIAL}" rel="noopener" target="_blank">@{SOCIAL}</a></div></li>
       </ul>
     </div>
@@ -431,7 +431,7 @@ def footer(p, home_prefix):
         <h2>Contact</h2>
         <ul>
           <li><a href="tel:{PHONE_TEL}">{PHONE}</a></li>
-          <li>{STREET}<br>{CITY} {REGION}</li>
+          <li>Servicing {SERVICE_AREA}, {REGION}</li>
           <li><a href="#quote">Get a free quote</a></li>
         </ul>
       </div>

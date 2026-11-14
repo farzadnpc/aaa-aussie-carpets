@@ -62,7 +62,6 @@ Then on GitHub: **Settings → Pages → Build and deployment → Deploy from a 
       See "Quote form emails" below for the template to use.
 - [ ] **Reviews**: when you get real reviews, add them to `reviews/index.html` (instructions in the comment at the top of that section)
       — copied word-for-word, with the customer's permission.
-- [ ] **Address**: check `114 Dontons Ave, Melbourne VIC` is correct and add your suburb and postcode.
 - [ ] **Social links**: check the Instagram, Facebook and X links point to your real pages.
 - [ ] **Areas**: edit the suburb lists in the Areas section to the areas you actually cover.
 - [ ] **Google**: set up a free **Google Business Profile**, and add the site to **Google Search Console**
