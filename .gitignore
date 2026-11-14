@@ -1,3 +1,5 @@
 .DS_Store
 # Original full-size photos (the website uses the optimised copies in assets/images)
 /images/
+# Raw Google Sheet exports (the site uses the trimmed data/suburbs.csv instead)
+/*.csv
