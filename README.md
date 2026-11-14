@@ -6,9 +6,19 @@ Plain HTML, CSS and JavaScript, so there's nothing to install and no build step.
 ## Folder layout
 
 ```
-index.html                      Home page (hero, services, our work, gallery, why us, reviews, areas, FAQ, quote form)
-services/index.html             "All services" page
-services/<service>/index.html   One page per service (good for Google rankings)
+index.html                      Home page (short previews of each section, linking to the full pages)
+services/index.html             "All services" page              -> /services/
+carpet-supply-installation/     Service page                     -> /carpet-supply-installation/
+carpet-repairs-restretching/    Service page                     -> /carpet-repairs-restretching/
+carpet-tiles/                   Service page                     -> /carpet-tiles/
+stairs-custom-work/             Service page                     -> /stairs-custom-work/
+commercial-carpet/              Service page                     -> /commercial-carpet/
+our-work/                       Our Work page                    -> /our-work/
+gallery/                        Gallery page                     -> /gallery/
+why-us/                         Why Us page                      -> /why-us/
+reviews/                        Reviews page                     -> /reviews/
+areas/                          Areas page                       -> /areas/
+questions/                      Questions (FAQ) page             -> /questions/
 404.html                        "Page not found" page
 assets/css/styles.css           All styling (brand colours are at the top in :root)
 assets/js/main.js               Menu, Services dropdown, gallery pop-up, quote form
@@ -47,7 +57,7 @@ Then on GitHub: **Settings → Pages → Build and deployment → Deploy from a 
 - [ ] **Quote form**: create a free form at https://formspree.io, copy the form ID, and replace
       `YOUR_FORM_ID` in every HTML file (search the whole project in VS Code: Cmd+Shift+F).
       Until then the form tells people to call.
-- [ ] **Reviews**: replace the `[Paste a real customer review here.]` placeholders in `index.html`
+- [ ] **Reviews**: replace the `[Paste a real customer review here.]` placeholders in `reviews/index.html`
       with real reviews from real customers.
 - [ ] **Address**: check `114 Dontons Ave, Melbourne VIC` is correct and add your suburb and postcode.
 - [ ] **Social links**: check the Instagram, Facebook and X links point to your real pages.

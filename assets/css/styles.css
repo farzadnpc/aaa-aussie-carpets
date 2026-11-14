@@ -495,3 +495,17 @@ ul { padding-left: 1.2em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* =========================================================
+   SECTION PREVIEWS & STANDALONE PAGES
+   ========================================================= */
+.section-more { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+.teaser { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.teaser > div { max-width: 680px; }
+.teaser h2 { margin-bottom: 8px; }
+.teaser p { margin: 0; color: var(--muted); font-size: 1.1rem; }
+.chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.chips li { border: 1px solid var(--line-dark); background: var(--panel); border-radius: 999px; padding: 10px 20px; font-weight: 600; color: var(--white); }
+.page-hero-solo { padding-top: clamp(40px, 6vw, 70px); padding-bottom: clamp(48px, 7vw, 80px); }
+.page-hero-solo .lead { max-width: 720px; }
+.card-title { font-size: 1.5rem; margin-bottom: 10px; }
